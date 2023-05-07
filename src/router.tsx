@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import MovieListContainer from "./components/MovieListContainer";
+import MovieDetails from "./components/MovieDetails";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <h1>Home</h1>,
+        element: <MovieListContainer />,
     },
     {
         path: "/movies/:movieId",
-        element: <h1>Movie</h1>,
+        element: <MovieDetails />,
     },
 ]);
