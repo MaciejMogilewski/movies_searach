@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {API_HOST, API_KEY} from "../Constans";
+import {API_HOST, API_KEY} from "../helpers/Constans";
 
 const useFetchMovies = () => {
     const [movies, setMovies] = useState([]);

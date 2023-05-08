@@ -1,20 +1,8 @@
-import {Link} from "react-router-dom";
-
-interface movie {
-    rank: number;
-    title: string;
-    thumbnail: string;
-    rating: string;
-    id: string;
-    year: number;
-    image: string;
-    description: string;
-    trailer: string;
-    genre: string[];
-    director: string[];
-    writers: string[];
-    imdbid: string;
-}
+import {Box, Typography} from "@mui/material";
+import MovieCard from "./MovieCard";
+import {movie} from "../helpers/movieTypes";
+import Grid from "@mui/material/Unstable_Grid2";
+import '@fontsource/exo/500.css';
 
 type movieListProps = {
     movies: movie[]
@@ -22,13 +10,16 @@ type movieListProps = {
 
 function MovieList({movies}: movieListProps): JSX.Element {
     return (
-        <div>
-            {movies.map((movie) => (
-                <Link to={`/movies/${movie.id}`} key={movie.id}>
-                    {movie.title}, {movie.rating}
-                </Link>
-            ))}
-        </div>
+        <Box>
+            <Typography variant="h2" style={{textAlign: 'center'}} fontFamily='Exo'>
+                Top 100 Movies
+            </Typography>
+            <Grid container spacing={2} marginTop={1}>
+                {movies.map((movie) => (
+                    <MovieCard movie={movie} key={movie.id}/>
+                ))}
+            </Grid>
+        </Box>
     );
 }
 
